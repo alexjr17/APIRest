@@ -16,16 +16,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        foreach ($posts as $post) {
-            $post->categoria->nombre;
-            // $post->comentarios->contenido;
-            $data[] = $post;
-        }
-        return response()->json([
-            'message' => 'Listando post',
-            'registros' => 'Son: ' . count($data),
-            'post' => $data
-        ]);
+        // foreach ($posts as $post) {
+        //     $post->categoria->nombre;
+        //     // $post->comentarios->contenido;
+        //     $data[] = $post;
+        // }
+        return response()->json($posts);
     }
 
     /**
