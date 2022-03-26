@@ -15,9 +15,9 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        $comentarios = Comentario::all();
+        $comentarios = Comentario::orderBy('id', 'desc')->get();
         foreach ($comentarios as $comentario) {
-            $comentario->post->titulo;
+            $comentario->post;
             $data[] = $comentario;
         }
         return response()->json([
@@ -45,7 +45,7 @@ class ComentarioController extends Controller
     {
         $request->validate(Comentario::$rules);
         $comentario = Comentario::create($request->all());
-        $comentario->post->titulo;
+        $comentario->post;
         return response()->json([
             'message' => "Comentario creado",
             'post' => $comentario
@@ -62,10 +62,10 @@ class ComentarioController extends Controller
     {
         $comentario = Comentario::find($id);
         if ($comentario) {
-            $comentario->post->titulo;
+            $comentario->post;
             return response()->json([
                 'message' => 'unico reqistro',
-                'post' => $comentario,
+                'comentario' => $comentario,
                 'status' => 200
             ]);
         } else {
@@ -97,7 +97,7 @@ class ComentarioController extends Controller
         $comentario = Comentario::find($id);
         if ($comentario) {
             $comentario->update($request->all());
-            $comentario->post->titulo;
+            $comentario->post;
             return response()->json([
                 'message' => 'Comentario actualizado',
                 'post' => $comentario

@@ -16,7 +16,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::orderBy('id', 'desc')->get();
         return response()->json([
             'message' => 'Listando Categorias',
             'registros' => 'Son: ' . count($categorias),
@@ -62,7 +62,7 @@ class CategoriaController extends Controller
         if ($categoria) {
             return response()->json([
                 'message' => 'unico reqistro',
-                'post' => $categoria,
+                'categoria' => $categoria,
                 'status' => 200
             ]);
         } else {

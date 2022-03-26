@@ -18,15 +18,17 @@
                                     </router-link> 
                                 </a>
 
-                                <!-- <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                                    <router-link to="/">Home</router-link>
-                                </a>
                                 <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                                    <router-link to="/contacto">Contacto</router-link>
-                                </a> -->
+                                    <router-link :to='{name: "indexCategoria"}'>
+                                        Categorias
+                                    </router-link> 
+                                </a>
 
-                                <!-- <a href="#"
-                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a> -->
+                                <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                    <router-link :to='{name: "indexComentario"}'>
+                                        Comentario
+                                    </router-link> 
+                                </a>
                             </div>
                         </div>
                     </div>

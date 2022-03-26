@@ -48,11 +48,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "categorias",
+  name: "post",
   data: function data() {
     return {
-      cayegorias: []
+      categorias: [],
+      post: {
+        titulo: '',
+        contenido: '',
+        categoria_id: ''
+      },
+      errors: {
+        titulo: '',
+        contenido: '',
+        categoria_id: ''
+      }
     };
   },
   mounted: function mounted() {
@@ -68,11 +106,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get('http://127.0.0.1:8000/api/categorias').then(function (response) {
-                  console.log(response.data);
-                  _this.posts = response.data;
-                })["catch"](function (err) {
-                  _this.posts = [];
+                return _this.axios.get("/api/categorias").then(function (response) {
+                  console.log(response.data.categorias);
+                  _this.categorias = response.data.categorias;
+                })["catch"](function (errors) {
+                  _this.categorias = [];
                 });
 
               case 2:
@@ -81,6 +119,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee);
+      }))();
+    },
+    crearPost: function crearPost() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log(_this2.post);
+                _context2.next = 3;
+                return _this2.axios.post("/api/posts", _this2.post).then(function (response) {
+                  alert('Guardado');
+
+                  _this2.$router.push({
+                    name: "indexPost"
+                  });
+                })["catch"](function (err) {
+                  _this2.errors = err.errors;
+                });
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     }
   }
@@ -936,8 +1002,166 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
-var staticRenderFns = []
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "flex justify-center items-stretch h-auto" },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "\n      self-center\n      bg-green-300\n      box-border\n      h-auto\n      w-7/12\n      p-4\n      border-4\n      self-center\n    ",
+        },
+        [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.crearPost.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c("div", [
+                _c("label", { attrs: { for: "" } }, [_vm._v("Titulo")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.post.titulo,
+                      expression: "post.titulo",
+                    },
+                  ],
+                  attrs: { type: "text", name: "", id: "" },
+                  domProps: { value: _vm.post.titulo },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.post, "titulo", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-red-500 text-sm" }, [
+                  _vm._v(_vm._s(_vm.errors.titulo)),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", { attrs: { for: "" } }, [_vm._v("Contenido")]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.post.contenido,
+                      expression: "post.contenido",
+                    },
+                  ],
+                  attrs: { name: "", id: "" },
+                  domProps: { value: _vm.post.contenido },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.post, "contenido", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-red-500 text-sm" }, [
+                  _vm._v(_vm._s(_vm.errors.contenido)),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", { attrs: { for: "" } }, [_vm._v("cayegorias")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.categoria_id,
+                        expression: "post.categoria_id",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "docente" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.post,
+                          "categoria_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  _vm._l(_vm.categorias, function (categoria) {
+                    return _c(
+                      "option",
+                      { key: categoria.id, domProps: { value: categoria.id } },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(categoria.nombre) +
+                            "\n          "
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-red-500 text-sm" }, [
+                  _vm._v(_vm._s(_vm.errors.categoria)),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(0),
+            ]
+          ),
+        ]
+      ),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("button", { staticClass: "btn-primary" }, [_vm._v("Guardar")]),
+    ])
+  },
+]
+render._withStripped = true
 
 
 

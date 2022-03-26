@@ -18,7 +18,7 @@ class ComentarioFactory extends Factory
     public function definition()
     {
         return [
-            'contenido' => $this->faker->sentence(),
+            'contenido' => $this->faker->sentence(5),
             'post_id' => Post::all()->random()->id
         ];
     }

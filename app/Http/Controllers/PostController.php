@@ -16,19 +16,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
         foreach ($posts as $post) {
-            if (!$post->categoria->nombre) {
-                $post->categoria->nombre;
+                $post->categoria;
+                $post->comentarios;
                 //la mejor forma de validar estos campos es desde
                 //el front donde se decide que se va a mostrar
                 //si el atributo es null muestra una etique  html u otra
                 //y no sobre cargar el controlador con trolador 
                 //recorriendo un array muy grande
+                $data[] = $post;
             }
-            // $post->comentarios->contenido;
-            $data[] = $post;
-        }
         return response()->json($data);
     }
 
@@ -68,8 +66,8 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         if ($post) {
-            $post->categoria->nombre;
-            // $post->comentarios->contenido;
+            $post->categoria;
+            $post->comentarios;
             return response()->json([
                 'message' => 'unico reqistro',
                 'post' => $post,

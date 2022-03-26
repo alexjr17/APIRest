@@ -18,6 +18,6 @@ class Comentario extends Model
 
     //relacion uno a muchos invertida}
     public function post(){
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class, 'post_id');
     }
 }

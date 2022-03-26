@@ -19,7 +19,7 @@ class PostFactory extends Factory
     {
         return [
             'titulo' => $this->faker->word(),
-            'contenido' => $this->faker->sentence(),
+            'contenido' => $this->faker->sentence(2),
             'categoria_id' => Categoria::all()->random()->id
         ];
     }

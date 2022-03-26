@@ -2240,38 +2240,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
 //importamos los componentes para post
-var Index = function Index() {
+var IndexPost = function IndexPost() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_Posts_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Posts/Index.vue */ "./resources/js/components/Posts/Index.vue"));
 };
 
-var Crear = function Crear() {
+var CrearPost = function CrearPost() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_Posts_Create_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Posts/Create.vue */ "./resources/js/components/Posts/Create.vue"));
 };
 
-var Editar = function Editar() {
+var EditarPost = function EditarPost() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_Posts_Edit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Posts/Edit.vue */ "./resources/js/components/Posts/Edit.vue"));
+}; //importamos los componentes para categorias
+
+
+var IndexCategoria = function IndexCategoria() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Categorias_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Categorias/Index.vue */ "./resources/js/components/Categorias/Index.vue"));
 };
 
-var Mostrar = function Mostrar() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_Posts_Show_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Posts/Show.vue */ "./resources/js/components/Posts/Show.vue"));
+var CrearCategoria = function CrearCategoria() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Categorias_Create_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Categorias/Create.vue */ "./resources/js/components/Categorias/Create.vue"));
+};
+
+var EditarCategoria = function EditarCategoria() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Categorias_Edit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Categorias/Edit.vue */ "./resources/js/components/Categorias/Edit.vue"));
+}; //importamos los componentes para comentarios
+
+
+var IndexComentario = function IndexComentario() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Comentarios_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Comentarios/Index.vue */ "./resources/js/components/Comentarios/Index.vue"));
+};
+
+var CrearComentario = function CrearComentario() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Comentarios_Create_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Comentarios/Create.vue */ "./resources/js/components/Comentarios/Create.vue"));
+};
+
+var EditarComentario = function EditarComentario() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Comentarios_Edit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Comentarios/Edit.vue */ "./resources/js/components/Comentarios/Edit.vue"));
 };
 
 var routes = [{
   name: 'indexPost',
   path: '/posts',
-  component: Index
+  component: IndexPost
 }, {
   name: 'crearPost',
   path: '/posts/crear',
-  component: Crear
+  component: CrearPost
 }, {
   name: 'editarPost',
   path: '/posts/editar/:id',
-  component: Editar
+  component: EditarPost
 }, {
-  name: 'mostrarPost',
-  path: '/posts/posts/show',
-  component: Mostrar
+  name: 'indexCategoria',
+  path: '/categorias',
+  component: IndexCategoria
+}, {
+  name: 'crearCategoria',
+  path: '/categorias/crear',
+  component: CrearCategoria
+}, {
+  name: 'editarCategoria',
+  path: '/categorias/editar/:id',
+  component: EditarCategoria
+}, {
+  name: 'indexComentario',
+  path: '/comentarios',
+  component: IndexComentario
+}, {
+  name: 'crearComentario',
+  path: '/comentarios/crear',
+  component: CrearComentario
+}, {
+  name: 'editarComentario',
+  path: '/comentarios/editar/:id',
+  component: EditarComentario
 }];
 
 /***/ }),
@@ -19813,6 +19855,46 @@ var render = function () {
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium",
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { name: "indexCategoria" } } },
+                          [
+                            _vm._v(
+                              "\r\n                                        Categorias\r\n                                    "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium",
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { name: "indexComentario" } } },
+                          [
+                            _vm._v(
+                              "\r\n                                        Comentario\r\n                                    "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
                   ]
                 ),
               ]),
@@ -35301,7 +35383,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Posts_Index_vue":1,"resources_js_components_Posts_Create_vue":1,"resources_js_components_Posts_Edit_vue":1,"resources_js_components_Posts_Show_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Posts_Index_vue":1,"resources_js_components_Posts_Create_vue":1,"resources_js_components_Posts_Edit_vue":1,"resources_js_components_Categorias_Index_vue":1,"resources_js_components_Categorias_Create_vue":1,"resources_js_components_Categorias_Edit_vue":1,"resources_js_components_Comentarios_Index_vue":1,"resources_js_components_Comentarios_Create_vue":1,"resources_js_components_Comentarios_Edit_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

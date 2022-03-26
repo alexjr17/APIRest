@@ -16,8 +16,9 @@ class CategoriaFactory extends Factory
      */
     public function definition()
     {
+        $random = ['Deporte', 'Musica', 'Tecnologia', 'Moda', 'Innobacion'];
         return [
-            'nombre' => $this->faker->word()
+            'nombre' => $this->faker->randomElement($random)
         ];
     }
 }

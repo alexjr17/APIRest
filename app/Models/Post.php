@@ -19,11 +19,11 @@ class Post extends Model
 
     //relacion uno a muchos
     public function comentarios(){
-        return $this->hasMany(Comentario::class);
+        return $this->hasMany(Comentario::class, 'id');
     }
 
     //relacion uno a muchos invertida}
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class, 'categoria_id');
     }
 }
