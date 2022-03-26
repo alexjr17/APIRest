@@ -19823,7 +19823,7 @@ var render = function () {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("main", [_c("router-view")], 1),
+      _c("main", { staticClass: "container" }, [_c("router-view")], 1),
     ]),
   ])
 }

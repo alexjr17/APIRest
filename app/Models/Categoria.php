@@ -12,6 +12,10 @@ class Categoria extends Model
 
     protected $fillable =['nombre'];
 
+    static $rules = [
+        'nombre' => 'required'
+    ];
+    
     //relacion uno a muchos
     public function posts(){
         return $this->hasMany(Categoria::class);

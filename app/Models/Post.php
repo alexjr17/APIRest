@@ -11,6 +11,12 @@ class Post extends Model
     protected $table = 'posts';
     protected $fillable =['titulo', 'contenido', 'categoria_id'];
 
+    static $rules = [
+        'titulo' => 'required|max:20',
+        'contenido' =>'required',
+        'categoria_id' => 'required'
+    ];
+
     //relacion uno a muchos
     public function comentarios(){
         return $this->hasMany(Comentario::class);

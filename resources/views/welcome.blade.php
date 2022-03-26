@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 
-<body class="antialiased">
-    <div id="app"></div>
+<body>
+    <div id="app">
+
+    </div>
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
 

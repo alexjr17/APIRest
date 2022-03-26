@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;
 
 class PostController extends Controller
@@ -16,12 +17,19 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        // foreach ($posts as $post) {
-        //     $post->categoria->nombre;
-        //     // $post->comentarios->contenido;
-        //     $data[] = $post;
-        // }
-        return response()->json($posts);
+        foreach ($posts as $post) {
+            if (!$post->categoria->nombre) {
+                $post->categoria->nombre;
+                //la mejor forma de validar estos campos es desde
+                //el front donde se decide que se va a mostrar
+                //si el atributo es null muestra una etique  html u otra
+                //y no sobre cargar el controlador con trolador 
+                //recorriendo un array muy grande
+            }
+            // $post->comentarios->contenido;
+            $data[] = $post;
+        }
+        return response()->json($data);
     }
 
     /**
@@ -42,6 +50,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(Post::$rules);
         $post = Post::create($request->all());
         return response()->json([
             'message' => "Post creado",
@@ -91,6 +100,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(Post::$rules);
         $post = Post::find($id);
         if ($post) {
             $post->update($request->all());

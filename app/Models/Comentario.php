@@ -11,6 +11,10 @@ class Comentario extends Model
     // protected $table = 'comentarios';
 
     protected $fillable = ['contenido', 'post_id'];
+    static $rules = [
+        'contenido' => 'required',
+        'post_id' => 'required'
+    ];
 
     //relacion uno a muchos invertida}
     public function post(){

@@ -64,6 +64,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "posts",
   data: function data() {
@@ -84,7 +85,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get('http://127.0.0.1:8000/posts').then(function (response) {
+                return _this.axios.get('http://127.0.0.1:8000/api/posts').then(function (response) {
+                  console.log(response.data);
                   _this.posts = response.data;
                 })["catch"](function (err) {
                   _this.posts = [];
@@ -957,25 +959,23 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "grid grid-cols-1 gap-4" }, [
-      _c("h1", { staticClass: "bg-green-400" }),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "bg-blue-500 hover:bg-blue-700" },
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "text-white font-bold py-2 px-4 rounded text-5xl",
-              attrs: { to: { name: "crearPost" } },
-            },
-            [_vm._v("+")]
-          ),
-        ],
-        1
-      ),
-      _vm._v(" "),
       _c("div", [
+        _c(
+          "button",
+          { staticClass: "bg-blue-500 hover:bg-blue-700" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "text-white font-bold py-2 px-4 rounded text-5xl",
+                attrs: { to: { name: "crearPost" } },
+              },
+              [_vm._v("+")]
+            ),
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c(
           "table",
           {
@@ -994,6 +994,36 @@ var render = function () {
                   _c("td", [_vm._v(_vm._s(post.titulo))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(post.contenido))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(post.categoria.nombre))]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c("router-link", [
+                        _c(
+                          "button",
+                          {
+                            attrs: {
+                              to: {
+                                name: {
+                                  editarUser: _vm.editarUser,
+                                  params: { id: post.id },
+                                },
+                              },
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.editar(post.id)
+                              },
+                            },
+                          },
+                          [_vm._v("Eliminar")]
+                        ),
+                      ]),
+                    ],
+                    1
+                  ),
                 ])
               }),
               0
@@ -1014,6 +1044,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Titulo")]),
         _vm._v(" "),
         _c("th", [_vm._v("contenido")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("categoria")]),
       ]),
     ])
   },

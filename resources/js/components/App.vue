@@ -39,7 +39,7 @@
                 <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
             </div>
         </header>
-            <main>
+            <main class="container">
                 <router-view></router-view>
             </main>
     </div>    

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comentario;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class ComentarioController extends Controller
 {
@@ -42,6 +43,7 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(Comentario::$rules);
         $comentario = Comentario::create($request->all());
         $comentario->post->titulo;
         return response()->json([
@@ -91,6 +93,7 @@ class ComentarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(Comentario::$rules);
         $comentario = Comentario::find($id);
         if ($comentario) {
             $comentario->update($request->all());

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;
 
 class CategoriaController extends Controller
@@ -41,6 +42,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(Categoria::$rules);
         $Categoria = Categoria::create($request->all());
         return response()->json([
             'message' => "Categoria creado",
@@ -88,6 +90,7 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(Categoria::$rules);
         $categoria = Categoria::find($id);
         if ($categoria) {
             $categoria->update($request->all());
