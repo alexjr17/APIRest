@@ -7,9 +7,9 @@
 @import 'tailwindcss/utilities';
 
 
-.container {
+/* .container {
     @apply max-w-7xl mx-auto px-2;
-}
+} */
 
 /* form */
 input{

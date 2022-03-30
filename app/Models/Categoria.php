@@ -18,6 +18,6 @@ class Categoria extends Model
     
     //relacion uno a muchos
     public function posts(){
-        return $this->hasMany(Categoria::class, 'id');
+        return $this->hasMany(Categoria::class);
     }
 }

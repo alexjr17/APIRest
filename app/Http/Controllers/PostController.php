@@ -16,18 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->get();
-        foreach ($posts as $post) {
-                $post->categoria;
-                $post->comentarios;
-                //la mejor forma de validar estos campos es desde
-                //el front donde se decide que se va a mostrar
-                //si el atributo es null muestra una etique  html u otra
-                //y no sobre cargar el controlador con trolador 
-                //recorriendo un array muy grande
-                $data[] = $post;
-            }
-        return response()->json($data);
+        $posts = Post::with(['categoria', 'comentarios'])->orderBy('id', 'desc')->get();
+        return response()->json($posts);
     }
 
     /**

@@ -72,7 +72,7 @@ export default {
   methods: {
     async mostrarPost() {
       await this.axios
-        .get("http://127.0.0.1:8000/api/posts")
+        .get("/api/posts")
         .then((response) => {
           console.log(response.data);
           this.posts = response.data;

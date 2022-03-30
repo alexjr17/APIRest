@@ -10,6 +10,8 @@ class Post extends Model
     use HasFactory;
     protected $table = 'posts';
     protected $fillable =['titulo', 'contenido', 'categoria_id'];
+    // protected $with = ['categoria', 'comentarios'];
+    // protected $withcount = ['comentarios'];
 
     static $rules = [
         'titulo' => 'required|max:20',
@@ -19,11 +21,11 @@ class Post extends Model
 
     //relacion uno a muchos
     public function comentarios(){
-        return $this->hasMany(Comentario::class, 'id');
+        return $this->hasMany(Comentario::class);
     }
 
     //relacion uno a muchos invertida}
     public function categoria(){
-        return $this->belongsTo(Categoria::class, 'categoria_id');
+        return $this->belongsTo(Categoria::class);
     }
 }
