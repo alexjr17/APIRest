@@ -2,6 +2,7 @@ require('./bootstrap');
 import vue from 'vue';
 window.Vue = vue
 
+//git clone apirest
 import App from './components/App.vue';
 
 import VueAxios from 'vue-axios';
